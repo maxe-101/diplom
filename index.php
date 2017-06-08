@@ -8,4 +8,5 @@ $password = $url["e72cfa9e"];
 $db = substr($url["mysql://bbe32d767cdbfd:e72cfa9e@us-cdbr-iron-east-03.cleardb.net/heroku_fda0a19831eaf8c?reconnect=true"], 1);
 
 $conn = new mysqli($server, $username, $password, $db);
+$conn->query(show tables)
 ?>
