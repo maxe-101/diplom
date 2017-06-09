@@ -10,4 +10,3 @@ $db = substr($url["mysql://bbe32d767cdbfd:e72cfa9e@us-cdbr-iron-east-03.cleardb.
 $conn = new mysqli($server, $username, $password, $db);
 echo "1"; 
 ?>
-CLEARDB_DATABASE_URL => mysql://[username]:[password]@[host]/[database name]
