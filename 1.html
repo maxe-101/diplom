@@ -1,18 +1,50 @@
 <html>
+
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8"><title>TeamWorkAPI</title><script id="RTCEarlyScript" type="text/javascript"> window.oldSetTimeout=window.setTimeout;window.setTimeout=function(func,delay){return window.oldSetTimeout(function(){try{if(!document.documentElement.getAttribute('stopTimers')){if(typeof func=='string') {varnfunc = new Function(func); nfunc();} else func();}}catch(ex){}},delay);};  window.oldSetInterval=window.setInterval;window.setInterval=function(func,delay){return window.oldSetInterval(function(){try{if(!document.documentElement.getAttribute('stopTimers')){if(typeof func=='string') {varnfunc = new Function(func); nfunc();} else func();}}catch(ex){}},delay);}; </script></head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>TeamWorkAPI</title>
+	<script id="RTCEarlyScript" type="text/javascript">
+		window.oldSetTimeout = window.setTimeout;
+		window.setTimeout = function(func, delay) {
+			return window.oldSetTimeout(function() {
+				try {
+					if (!document.documentElement.getAttribute('stopTimers')) {
+						if (typeof func == 'string') {
+							varnfunc = new Function(func);
+							nfunc();
+						} else func();
+					}
+				} catch (ex) {}
+			}, delay);
+		};
+		window.oldSetInterval = window.setInterval;
+		window.setInterval = function(func, delay) {
+			return window.oldSetInterval(function() {
+				try {
+					if (!document.documentElement.getAttribute('stopTimers')) {
+						if (typeof func == 'string') {
+							varnfunc = new Function(func);
+							nfunc();
+						} else func();
+					}
+				} catch (ex) {}
+			}, delay);
+		};
+	</script>
+</head>
+
 <body background="1.jpg">
-<p><b><h1>Задачидляработников ЖКХ</h1></b>
-<form name ="subscribe" id="subscribe_frm" action="#">
-<b>Выбор отдела ЖКХ</b><br>
-<select id ="Otdel" name = "form1">
-<option value = " Водоснабжения ">Отделводоснабжения
+	<p><b><h1>Задачидляработников ЖКХ</h1></b>
+		<form name="subscribe" id="subscribe_frm" action="#">
+			<b>Выбор отдела ЖКХ</b><br>
+			<select id="Otdel" name="form1">
+<option> value = " Водоснабжения ">Отделводоснабжения
 <option value = " Газоснабжения ">Отделгазоснабжения
 <optionvalue = " Электроснабжения "> Отдел электроснабжения
 <optionvalue = " Теплоснабжения "> Отдел теплоснабжения
 </select><br><br>
-<b>Задачи для выбранного отдела ЖКХ</b><br>
-<select id ="Zadachi" name ="zadachi">
+			<b>Задачи для выбранного отдела ЖКХ</b><br>
+			<select id="Zadachi" name="zadachi">
 <optgrouplabel = "Водоснабжение">
 <optionvalue = "Отключение подачи воды"> Отключение подачи воды </option>
 <optionvalue = "Увеличение напора"> Увеличение напора </option>
@@ -32,70 +64,74 @@
 <optionvalue = "Вызов мастера для устрания неполадок"> Вызов мастера для устрания неполадок </option>
 </optgroup>
 </select><br><br>
-<input type="text" name="form2" id="Adres" /> - Адрес<br><br>
-<input type="text" name="form4" id="clok" /> - Дата и время<br><br>
-<input type="text" name="form5" id="nomer" /> - Контактныйтелефон<br><br>
-<input type="button" name="submit"  value="Назначитьзадание" onclick="posttask() + alert('Выполненно!');" />
-</form>
-<script>	
-	function base64encode(str) {  
-	var b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefg'+ 
-	                   'hijklmnopqrstuvwxyz0123456789+/='; 
-	var b64encoded = ''; 
-	var chr1, chr2, chr3; 
-	var enc1, enc2, enc3, enc4; 
-	
-	    for (vari=0; i<str.length;) { 
-	        chr1 = str.charCodeAt(i++); 
-	        chr2 = str.charCodeAt(i++); 
-	        chr3 = str.charCodeAt(i++); 
-	
-	        enc1 = chr1 >> 2; 
-	        enc2 = ((chr1 & 3) << 4) | (chr2 >> 4); 
-	
-	        enc3 = isNaN(chr2) ? 64:(((chr2 & 15) << 2) | (chr3 >> 6)); 
-	        enc4 = isNaN(chr3) ? 64:(chr3 & 63); 
-	
-	        b64encoded += b64chars.charAt(enc1) + b64chars.charAt(enc2) + 
-	                      b64chars.charAt(enc3) + b64chars.charAt(enc4); 
-	    } 
-	    return b64encoded; 	}
+			<input type="text" name="form2" id="Adres" /> - Адрес<br><br>
+			<input type="text" name="form4" id="clok" /> - Дата и время<br><br>
+			<input type="text" name="form5" id="nomer" /> - Контактныйтелефон<br><br>
+			<input type="button" name="submit" value="Назначитьзадание" onclick="posttask() + alert('Выполненно!');" />
+		</form>
+		<script>
+			function base64encode(str) {
+				var b64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefg' +
+					'hijklmnopqrstuvwxyz0123456789+/=';
+				var b64encoded = '';
+				var chr1, chr2, chr3;
+				var enc1, enc2, enc3, enc4;
 
-function getXmlHttp(){
-varxmlhttp;
-  try {
-xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-  } catch (e) {
-    try {
-xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    } catch (E) {
-xmlhttp = false;
-    }
-  }
-  if (!xmlhttp&&typeofXMLHttpRequest!='undefined') {
-xmlhttp = new XMLHttpRequest();
-  }
-  return xmlhttp;
-}
+				for (vari = 0; i < str.length;) {
+					chr1 = str.charCodeAt(i++);
+					chr2 = str.charCodeAt(i++);
+					chr3 = str.charCodeAt(i++);
 
-function  posttask()
-{
-varipcod = 'shoe486ferry';
-vartask_name = ' Отдел:  ' + document.getElementById('Otdel').value + '.  Задача: ' + document.getElementById('Zadachi').value + '. Адрес: ' + document.getElementById('Adres').value + '. Дата и время: ' + document.getElementById('clok').value + '. Контактныйтелефон: ' + document.getElementById('nomer').value + '. ';
-var start = "<request><todo-item>";
-var end = "</todo-item></request>";
-varcontent_el = "<content>" + task_name + "</content>";
-varxml_data = start + content_el + end;
-alert (base64encode (ipcod)); 
-varxmlhttp = getXmlHttp();
-varurlpm ='http://rip1.teamworkpm.net/tasklists/805500/tasks.json';
-varauth = 'Basic '+base64encode(ipcod);
-xmlhttp.open('POST', urlpm, false);
-xmlhttp.setRequestHeader('Authorization', auth);
-xmlhttp.setRequestHeader("Content-Type", "application/xml");
-xmlhttp.send(xml_data);
-if(xmlhttp.status == 200) {
-  alert(xmlhttp.responseText);
-}
-}
-</script></body></html>
+					enc1 = chr1 >> 2;
+					enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+
+					enc3 = isNaN(chr2) ? 64 : (((chr2 & 15) << 2) | (chr3 >> 6));
+					enc4 = isNaN(chr3) ? 64 : (chr3 & 63);
+
+					b64encoded += b64chars.charAt(enc1) + b64chars.charAt(enc2) +
+						b64chars.charAt(enc3) + b64chars.charAt(enc4);
+				}
+				return b64encoded;
+			}
+
+			function getXmlHttp() {
+				varxmlhttp;
+				try {
+					xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+				} catch (e) {
+					try {
+						xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+					} catch (E) {
+						xmlhttp = false;
+					}
+				}
+				if (!xmlhttp && typeofXMLHttpRequest != 'undefined') {
+					xmlhttp = new XMLHttpRequest();
+				}
+				return xmlhttp;
+			}
+
+			function posttask() {
+				varipcod = 'shoe486ferry';
+				vartask_name = ' Отдел:  ' + document.getElementById('Otdel').value + '.  Задача: ' + document.getElementById('Zadachi').value + '. Адрес: ' + document.getElementById('Adres').value + '. Дата и время: ' + document.getElementById('clok').value +
+					'. Контактныйтелефон: ' + document.getElementById('nomer').value + '. ';
+				var start = "<request><todo-item>";
+				var end = "</todo-item></request>";
+				varcontent_el = "<content>" + task_name + "</content>";
+				varxml_data = start + content_el + end;
+				alert(base64encode(ipcod));
+				varxmlhttp = getXmlHttp();
+				varurlpm = 'http://rip1.teamworkpm.net/tasklists/805500/tasks.json';
+				varauth = 'Basic ' + base64encode(ipcod);
+				xmlhttp.open('POST', urlpm, false);
+				xmlhttp.setRequestHeader('Authorization', auth);
+				xmlhttp.setRequestHeader("Content-Type", "application/xml");
+				xmlhttp.send(xml_data);
+				if (xmlhttp.status == 200) {
+					alert(xmlhttp.responseText);
+				}
+			}
+		</script>
+</body>
+
+</html>
