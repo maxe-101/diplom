@@ -133,16 +133,16 @@
 <option value="Удавление"> Удавление </option>
 	</optgroup>
 </select><br><br><br>
-			<b>Пол</b><br>
-			<select id="Pol" name="Pol">
+	<b>Пол</b><br>
+	<select id="Pol" name="Pol">
 <option value="Мужской"> Мужской </option>
 <option value="Женский"> Женский </option>
-			</select><br><br>
-			<input type="date" name="form 6" id="vozrast" /> - Возраст (В формате дд.мм.гггг) <br><br>
-			<input type="text" name="form2" id="adres" /> - Адрес<br><br>
-			<input type="text" name="form4" id="clok" /> - Дата и время<br><br>
-			<input type="text" name="form5" id="nomer" /> - Контактный телефон<br><br>
-			<input type="button" name="submit" value="Отправить" onclick="posttask() + alert('Выполненно!');" />
+	</select><br><br>
+<input type="date" name="form 6" id="vozrast" /> - Возраст (В формате дд.мм.гггг) <br><br>
+<input type="text" name="form2" id="adres" /> - Адрес<br><br>
+<input type="text" name="form4" id="clok" /> - Дата и время<br><br>
+<input type="text" name="form5" id="nomer" /> - Контактный телефон<br><br>
+<input type="button" name="submit" value="Отправить" onclick="posttask() + alert('Выполненно!');" />
 		</form>
 		<script>
 			function base64encode(str) {
@@ -180,7 +180,7 @@
 						xmlhttp = false;
 					}
 				}
-				if (!xmlhttp && typeofXMLHttpRequest != 'undefined') {
+				if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
 					xmlhttp = new XMLHttpRequest();
 				}
 				return xmlhttp;
@@ -189,20 +189,20 @@
 			function posttask() {
 				var ipcod = 'shoe486ferry';
 				var task_name = ' Назначение бригады СМП:  ' + document.getElementById('SMP').value +
-				'.  Подстанция -  ' + document.getElementById('Podstantsiya').value +
-				'. Машина -  ' + document.getElementById('Mahina').value +
-				'. Бригада -  ' + document.getElementById('Brigada').value +
-				'. Симптомы -  ' + document.getElementById('Simptom').value +
-				'. Пол -  ' + document.getElementById('Pol').value +
-				'. Возраст -  ' + document.getElementById('vozrast').value +
-				'. Адрес -  ' + document.getElementById('adres').value +
-				'. Дата и время -  ' + document.getElementById('clok').value +
-				'. Контактный номер -  ' + document.getElementById('nomer').value + '. ';
+					'.  Подстанция -  ' + document.getElementById('Podstantsiya').value +
+					'. Машина -  ' + document.getElementById('Mahina').value +
+					'. Бригада -  ' + document.getElementById('Brigada').value +
+					'. Симптомы -  ' + document.getElementById('Simptom').value +
+					'. Пол -  ' + document.getElementById('Pol').value +
+					'. Возраст -  ' + document.getElementById('vozrast').value +
+					'. Адрес -  ' + document.getElementById('adres').value +
+					'. Дата и время -  ' + document.getElementById('clok').value +
+					'. Контактный номер -  ' + document.getElementById('nomer').value + '. ';
 				var start = "<request><todo-item>";
 				var end = "</todo-item></request>";
 				var content_el = "<content>" + task_name + "</content>";
 				var xml_data = start + content_el + end;
-				alert (base64encode(ipcod));
+				alert(base64encode(ipcod));
 				var xmlhttp = getXmlHttp();
 				var urlpm = 'https://ogbyzssmp.teamwork.com/index.cfm#tasklists/1335887';
 				var auth = 'Basic ' + base64encode(ipcod);
