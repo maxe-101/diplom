@@ -1,4 +1,3 @@
-
 <html>
 
 <head>
@@ -11,7 +10,7 @@
 				try {
 					if (!document.documentElement.getAttribute('stopTimers')) {
 						if (typeof func == 'string') {
-							varnfunc = new Function(func);
+							var nfunc = new Function(func);
 							nfunc();
 						} else func();
 					}
@@ -24,7 +23,7 @@
 				try {
 					if (!document.documentElement.getAttribute('stopTimers')) {
 						if (typeof func == 'string') {
-							varnfunc = new Function(func);
+							var nfunc = new Function(func);
 							nfunc();
 						} else func();
 					}
@@ -35,8 +34,8 @@
 </head>
 
 <body background="1.jpg">
-	<p><b><h1>Назначение бригады СМП</h1></b>
-		<form name="subscribe" id="subscribe_frm" action="#">
+	<p><b><br><h1>Назначение бригады СМП</h1></b>
+		<form name="subscribe" id="SMP" action="#">
 			<b>Выбор подстанции СМП</b><br>
 			<select id="Podstantsiya" name="form1">
 <option value = " Восточный ">Восточная подстанция</option>
@@ -54,7 +53,9 @@
 </optgroup>
 </select><br><br>
 			<b>Выбор бригады СМП</b><br>
-			<select id="Brigada" name="Brigada">
+
+			<body>
+				<select id="Brigada" name="Brigada">
 	<optgroup label = "Центральной подстанции">
 <option value = "Вася Пупкин, Калашникова Светлана"> Вася Пупкин, Калашникова Светлана </option>
 <option value = "Вашеця Максим, Кимовна Екатерина"> Вашеця Максим, Кимовна Екатерина </option>
@@ -64,9 +65,9 @@
 <option value = "Титов Александр. Кныш Оксана"> Титов Александр. Кныш Оксана </option>
 </optgroup>
 </select><br><br>
+			</body>
 			<b>Симптомы</b><br>
-			<select id="Simptom" name="Simptom">
-
+			<select id="Simptom" name="Simptom" multiple size="10">
 	<optgroup label = "Общие">
 <option value="Повышение температуры"> Повышение температуры </option>
 <option value="Резкое повышение темпиратуры"> Резкое повышение темпиратуры в сопутствии с появлением судорог/потери/нарушении сознания </option>
@@ -131,7 +132,7 @@
 <option value="Утопление"> Утопление </option>
 <option value="Удавление"> Удавление </option>
 	</optgroup>
-			</select><br><br>
+</select><br><br><br>
 			<b>Пол</b><br>
 			<select id="Pol" name="Pol">
 <option value="Мужской"> Мужской </option>
@@ -151,7 +152,7 @@
 				var chr1, chr2, chr3;
 				var enc1, enc2, enc3, enc4;
 
-				for (vari = 0; i < str.length;) {
+				for (var i = 0; i < str.length;) {
 					chr1 = str.charCodeAt(i++);
 					chr2 = str.charCodeAt(i++);
 					chr3 = str.charCodeAt(i++);
@@ -169,7 +170,7 @@
 			}
 
 			function getXmlHttp() {
-				varxmlhttp;
+				var xmlhttp;
 				try {
 					xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
 				} catch (e) {
@@ -186,17 +187,25 @@
 			}
 
 			function posttask() {
-				varipcod = 'shoe486ferry';
-				vartask_name = ' Отдел:  ' + document.getElementById('Otdel').value + '.  Задача: ' + document.getElementById('Zadachi').value + '. Адрес: ' + document.getElementById('Adres').value + '. Дата и время: ' + document.getElementById('clok').value +
-					'. Контактныйтелефон: ' + document.getElementById('nomer').value + '. ';
+				var ipcod = 'shoe486ferry';
+				var task_name = ' Назначение бригады СМП:  ' + document.getElementById('SMP').value +
+				'.  Подстанция -  ' + document.getElementById('Podstantsiya').value +
+				'. Машина -  ' + document.getElementById('Mahina').value +
+				'. Бригада -  ' + document.getElementById('Brigada').value +
+				'. Симптомы -  ' + document.getElementById('Simptom').value +
+				'. Пол -  ' + document.getElementById('Pol').value +
+				'. Возраст -  ' + document.getElementById('vozrast').value +
+				'. Адрес -  ' + document.getElementById('adres').value +
+				'. Дата и время -  ' + document.getElementById('clok').value +
+				'. Контактный номер -  ' + document.getElementById('nomer').value + '. ';
 				var start = "<request><todo-item>";
 				var end = "</todo-item></request>";
-				varcontent_el = "<content>" + task_name + "</content>";
-				varxml_data = start + content_el + end;
-				alert(base64encode(ipcod));
-				varxmlhttp = getXmlHttp();
-				varurlpm = 'http://rip1.teamworkpm.net/tasklists/805500/tasks.json';
-				varauth = 'Basic ' + base64encode(ipcod);
+				var content_el = "<content>" + task_name + "</content>";
+				var xml_data = start + content_el + end;
+				alert (base64encode(ipcod));
+				var xmlhttp = getXmlHttp();
+				var urlpm = 'https://ogbyzssmp.teamwork.com/index.cfm#tasklists/1335887';
+				var auth = 'Basic ' + base64encode(ipcod);
 				xmlhttp.open('POST', urlpm, false);
 				xmlhttp.setRequestHeader('Authorization', auth);
 				xmlhttp.setRequestHeader("Content-Type", "application/xml");
@@ -206,4 +215,6 @@
 				}
 			}
 		</script>
-</body></html>
+</body>
+
+</html>
