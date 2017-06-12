@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
-$url = parse_url(getenv("mysql://bbe32d767cdbfd:e72cfa9e@us-cdbr-iron-east-03.cleardb.net/heroku_fda0a19831eaf8c"));
+$url = parse_url(getenv("mysql://bbe32d767cdbfd:e72cfa9e@us-cdbr-iron-east-03.cleardb.net/heroku_fda0a19831eaf8c?reconnect=true"));
 
 $server = $url["host"];
 $username = $url["user"];
