@@ -3,11 +3,6 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
-$conn->close();
-function mymodule_form_alter(&$form, $form_state) {
-  drupal_add_js(drupal_get_path('module', 'mymodule').'/jquery.maskedinput.min.js');
-  drupal_add_js(drupal_get_path('module', 'mymodule') . '/jquery.js');
-  drupal_add_js(drupal_get_path('module', 'mymodule') . '/userreg.js');
 $server = "us-cdbr-iron-east-03.cleardb.net";
 $username = "bbe32d767cdbfd";
 $password = "e72cfa9e";
