@@ -1,4 +1,6 @@
-<html><head>
+<html>
+
+<head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<title>TeamWorkAPI</title>
 	<script id="RTCEarlyScript" type="text/javascript">
@@ -136,7 +138,7 @@
 <option value="Мужской"> Мужской </option>
 <option value="Женский"> Женский </option>
 	</select><br><br>
-<input type="text" name="form 6" id="vozrast" placeholder="дд.мм.гггг"  /> - Возраст<br><br>
+<input type="text" name="form 6" id="vozrast" placeholder="дд.мм.гггг" /> - Возраст<br><br>
 <input type="text" name="form2" id="adres" /> - Адрес<br><br>
 <input type="time" name="form4" id="clok" /> - Время<br><br>
 <input type="text" name="form5" id="nomer" /> - Контактный телефон<br><br>
@@ -186,7 +188,7 @@
 
 			function posttask() {
 				var ipcod = 'shoe486ferry';
-				var task_name =
+				var task_name = ' Назначение бригады СМП:  ' + document.getElementById('SMP').value +
 					'.  Подстанция -  ' + document.getElementById('Podstantsiya').value +
 					'. Машина -  ' + document.getElementById('Mahina').value +
 					'. Бригада -  ' + document.getElementById('Brigada').value +
