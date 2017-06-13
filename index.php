@@ -15,5 +15,4 @@ if ($result = $conn->query("SELECT * FROM cars")){
 		echo $row[1];
     }
 }
-}
 ?>
