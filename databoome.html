@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://databoom.space/databoom.js"></script>
+</head>
+<body>
+<ul class="list-group" id="task-list"></ul>
+
+<input type= "button" onclick="ffun()" />
+<script>
+var db = databoom("https://t761.databoom.space", "t761");
+
+        function showToDo(data) {
+            $('.list-group').empty();
+            for (var i = 0; i < data.length; ++i) {
+                $('#task-list').append('<li data-id="' + data[i].id + '" class="list-group-item"><span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span> ' + data[i].text + '</li>');
+            }
+        }
+		function showError(){alert("Error")};
+function updateList() { db.load('tasklist', { orderby: "date desc" }).done(showToDo).fail(showError)}
+
+function ffun(){
+db.login("default", "abu4bo6r").done(updateList);
+}
+</script>
+</body>
+</html>
